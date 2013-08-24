@@ -19,17 +19,14 @@ int main(int argc, const char * argv[])
         
         NSString *oldfile = nil;
         NSString *newfile = nil;
-        NSString *outfile = nil;
         
         if(argc>1)
         {
             oldfile = [NSString stringWithFormat:@"%s",argv[1]];
             newfile = [NSString stringWithFormat:@"%s",argv[2]];
-            outfile = [NSString stringWithFormat:@"%s",argv[3]];
         }else{
             oldfile = @"./Localizable.old.strings";
             newfile = @"./Localizable.new.strings";
-            outfile = @"./Localizable.out.strings";
         }
         
         NSLog(@"oldFile:%@",oldfile);
@@ -80,7 +77,12 @@ int main(int argc, const char * argv[])
             [outStr appendString:[okArray objectAtIndex:i]];
             [outStr appendString:@"\n\n"];
         }
-        NSLog(@"%@",outStr);
+        NSError *error=nil;
+        [outStr writeToFile:@"out.strings" atomically:NO encoding:NSUTF8StringEncoding error:&error];
+        if(error)
+            NSLog(@"%@",[error localizedDescription]);
+        else
+            NSLog(@"%@",outStr);
 
         return 0;
         

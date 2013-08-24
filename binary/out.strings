@@ -1,0 +1,29 @@
+
+/*
+
+ ProjectName: mls  (MergeLocalizedString) 
+
+ Usage：
+ ./MergeLocalizedString oldLocalizedFileName newLocalizedFileName outLocalizedFileName 
+
+ tips:use full file name (you can find full file name from file's intrduction)
+
+ How to create Localized.string:
+ find ./ -name *.m -print0 | xargs -0 genstrings -o res/en.lproj  
+
+ smalltask@gmail.com
+ 2013.8.23
+
+ */
+
+
+
+/*  */
+" 更新了个人档案" = "'s profile is updated";
+
+/*  */
+"测试文本1" = "测试文本1";
+
+/*  */
+"测试文本2" = "测试文本2";
+
